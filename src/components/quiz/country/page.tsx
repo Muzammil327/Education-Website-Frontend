@@ -19,7 +19,16 @@ export default function QuizCountry(props: {
   useEffect(() => {
     const fetchMcqs = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/get/book/${props.book}`);
+        let baseUrl;
+
+        if (process.env.NODE_ENV === 'development') {
+          baseUrl = 'http://localhost:8000';
+        } else {
+          baseUrl = 'https://education-website-backend.vercel.app';
+        }
+        
+        const apiUrl = `${baseUrl}/api/get/book/${props.book}`;
+        const response = await fetch(apiUrl);
         // console.log("response:", response);
 
         const data: { [key: string]: Mcq } = await response.json();

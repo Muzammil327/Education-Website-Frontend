@@ -33,9 +33,17 @@ export default function Page() {
   useEffect(() => {
     const fetchMcqs = async () => {
       try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/get/pakstudy/${params.question}`
-        );
+        let baseUrl;
+
+        if (process.env.NODE_ENV === 'development') {
+          baseUrl = 'http://localhost:8000';
+        } else {
+          baseUrl = 'https://education-website-backend.vercel.app';
+        }
+        
+        const apiUrl = `${baseUrl}/api/get/pakstudy/${params.question}`;
+
+        const response = await fetch(apiUrl);
         // console.log("response:", response);
 
         if (response.ok) {

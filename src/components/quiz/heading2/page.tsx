@@ -14,9 +14,17 @@ export default function QuizHeading2(props: { book: string; subSlug: string }) {
   useEffect(() => {
     const fetchMcqs = async () => {
       try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/get/heading-1/${props.subSlug}`
-        );
+        let baseUrl;
+
+        if (process.env.NODE_ENV === 'development') {
+          baseUrl = 'http://localhost:8000';
+        } else {
+          baseUrl = 'https://education-website-backend.vercel.app';
+        }
+        
+        const apiUrl = `${baseUrl}/api/get/heading-1/${props.subSlug}`;
+
+        const response = await fetch(apiUrl );
         const data: { [key: string]: Mcq } = await response.json();
         // console.log("response:", response);
         // console.log("data:", data);
