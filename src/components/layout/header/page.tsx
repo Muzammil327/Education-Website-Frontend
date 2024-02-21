@@ -38,9 +38,7 @@ export default function Header(props: { title: string }) {
             </div>
           </div>
         </div>
-        <div className="bg2" aria-hidden="true">
-          <div className="icon" />
-        </div>
+      
       </div>
     </section>
   );
