@@ -21,12 +21,12 @@ export default function QuizCountry(props: {
       try {
         let baseUrl;
 
-        if (process.env.NODE_ENV === 'development') {
-          baseUrl = 'http://localhost:8000';
+        if (process.env.NODE_ENV === "development") {
+          baseUrl = "http://localhost:8000";
         } else {
-          baseUrl = 'https://education-website-backend.vercel.app';
+          baseUrl = "https://education-website-backend.vercel.app";
         }
-        
+
         const apiUrl = `${baseUrl}/api/get/book/${props.book}`;
         const response = await fetch(apiUrl);
         // console.log("response:", response);
@@ -80,13 +80,12 @@ export default function QuizCountry(props: {
           <div className="col-span-6">
             {mcqs &&
               mcqs.map((data: Mcq) => (
-                <a
-                  key={data.id}
-                  href={`/quiz/${props.book}/${props.subSlug}/${
-                    props.country
-                  }/${slugify(data.question, { lower: true })}`}
-                >
-                  <div className="questionCard">
+                <div className="questionCard" key={data.id}>
+                  <a
+                    href={`/quiz/${props.book}/${props.subSlug}/${
+                      props.country
+                    }/${slugify(data.question, { lower: true })}`}
+                  >
                     <div className="cards flex gap-4 items-center lg:m-6 md:m-4 m-2 lg:p-5 md:p-4 p-1 w-auto min-h-[80px]">
                       <div className="icon">
                         <FaBolt />
@@ -94,9 +93,8 @@ export default function QuizCountry(props: {
 
                       <h2 className="title">{data.question}</h2>
                     </div>
-                    
-                  </div>
-                </a>
+                  </a>
+                </div>
               ))}
           </div>
           <div className="col-span-3"></div>
