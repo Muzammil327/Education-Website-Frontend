@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from 'next/navigation'
-import { API_URL } from "../api";
 import React, { useState } from "react";
 import axios from "axios";
 import Header from "@/src/components/layout/header/page";
@@ -23,7 +22,7 @@ const SearchBar = () => {
   const handleSearch = async () => {
     try {
       // Send a GET request to your backend API with the entered tags
-      const response = await axios.get(`${API_URL}/api/get/tags?tags=${tags}`);
+      const response = await axios.get(`/api/get/tags?tags=${tags}`);
       // Update the searchResults state with the data from the response
       if (response.data.length === 0) {
         setError("No results found for the provided tags.");
