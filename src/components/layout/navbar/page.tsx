@@ -22,10 +22,10 @@ export default function Navbar() {
             <Link href="/">
               <span>Your Company</span>
               <Image
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                src="/logo.png"
                 alt="Logo"
-                height={400}
-                width={400}
+                height={300}
+                width={180}
               />
             </Link>
           </div>
@@ -55,11 +55,10 @@ export default function Navbar() {
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Muzammil</span>
                 <Image
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                  alt=""
-                  height={400}
-                  width={400}
+                src="/logo.png"
+                alt="Logo"
+                height={300}
+                width={180}
                 />
               </Link>
               <button

@@ -132,7 +132,7 @@ export default function Page() {
                 </ul>
               </div> */}
             </section>
-            <QuizQuestionForm />
+            <QuizQuestionForm url={params.question}/>
           </div>
           <div className="col-span-3"></div>
         </div>

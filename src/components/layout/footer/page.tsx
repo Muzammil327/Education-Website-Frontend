@@ -1,4 +1,5 @@
-import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
+import { BookOpenIcon, HandThumbUpIcon, QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -42,11 +43,13 @@ export default function Footer() {
                   aria-hidden="true"
                 />
               </div>
+              <Link href='/quiz'>
               <dt className="mt-4 font-semibold text-white">Quiz</dt>
               <dd className="mt-2 leading-7 text-gray-400">
                 Non laboris consequat cupidatat laborum magna. Eiusmod non irure
                 cupidatat duis commodo amet.
               </dd>
+              </Link>
             </div>
             <div className="flex flex-col items-start">
               <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
@@ -56,6 +59,32 @@ export default function Footer() {
                 />
               </div>
               <dt className="mt-4 font-semibold text-white">Online Quiz</dt>
+              <dd className="mt-2 leading-7 text-gray-400">
+                Officia excepteur ullamco ut sint duis proident non adipisicing.
+                Voluptate incididunt anim.
+              </dd>
+            </div>
+            <div className="flex flex-col items-start">
+              <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+                <BookOpenIcon
+                  className="h-6 w-6 text-white"
+                  aria-hidden="true"
+                />
+              </div>
+              <dt className="mt-4 font-semibold text-white">Notes</dt>
+              <dd className="mt-2 leading-7 text-gray-400">
+                Officia excepteur ullamco ut sint duis proident non adipisicing.
+                Voluptate incididunt anim.
+              </dd>
+            </div>
+            <div className="flex flex-col items-start">
+              <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+                <BookOpenIcon
+                  className="h-6 w-6 text-white"
+                  aria-hidden="true"
+                />
+              </div>
+              <dt className="mt-4 font-semibold text-white">Books</dt>
               <dd className="mt-2 leading-7 text-gray-400">
                 Officia excepteur ullamco ut sint duis proident non adipisicing.
                 Voluptate incididunt anim.
