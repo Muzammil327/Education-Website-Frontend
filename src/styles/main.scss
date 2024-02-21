@@ -1,0 +1,15 @@
+@import '@/src/components/layout/header/header.scss';
+@import '@/src/components/quiz/book/Bookcards.scss';
+@import '@/src/components/quiz/heading1/heading1card.scss';
+@import '@/src/components/quiz/heading2/heading2card.scss';
+@import '@/src/components/quiz/country/countrycard.scss';
+@import '@/src/components/quiz/question/form/quizQuestionForm.scss';
+@import '@/src/components/quiz/question/quiz/quizquestionstructure.scss';
+
+
+.btn1 {
+  @apply rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
+}
+.btn2 {
+  @apply text-sm font-semibold leading-6 text-gray-900;
+}
