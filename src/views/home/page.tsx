@@ -7,10 +7,10 @@ import VedioSection from '@/src/components/home/vedioSection/page'
 export default function HomeView() {
   return (
     <>
-        <Header title='Welcome to my Website.' />
-        <Feature />
-        <Stat />
-        <VedioSection />
+      <Header title="Welcome to my Website." />
+      <Feature />
+      <Stat />
+      <VedioSection />
     </>
   )
 }

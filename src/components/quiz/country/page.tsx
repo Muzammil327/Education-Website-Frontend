@@ -1,16 +1,16 @@
-"use client";
-import { useState, useEffect } from "react";
-import slugify from "slugify";
-import { FaBolt } from "react-icons/fa6";
-import { Mcq } from "@/src/types/quiz/page";
-import Container from "@/src/components/elements/container/page";
+'use client'
+import { useState, useEffect } from 'react'
+import slugify from 'slugify'
+import { FaBolt } from 'react-icons/fa6'
+import { Mcq } from '@/src/types/quiz/page'
+import Container from '@/src/components/elements/container/page'
 
 export default function QuizCountry(props: {
-  book: string;
-  subSlug: string;
-  country: string;
+  book: string
+  subSlug: string
+  country: string
 }) {
-  const [mcqs, setMcqs] = useState<Mcq[]>([]);
+  const [mcqs, setMcqs] = useState<Mcq[]>([])
   // console.log("mcqs:", mcqs);
   // console.log("check param:", params.book);
   // console.log("check param:", params.subSlug);
@@ -19,59 +19,55 @@ export default function QuizCountry(props: {
   useEffect(() => {
     const fetchMcqs = async () => {
       try {
-        let baseUrl;
+        let baseUrl
 
-        if (process.env.NODE_ENV === "development") {
-          baseUrl = "http://localhost:8000";
+        if (process.env.NODE_ENV === 'development') {
+          baseUrl = 'http://localhost:8000'
         } else {
-          baseUrl = "https://education-website-backend.vercel.app";
+          baseUrl = 'https://education-website-backend.vercel.app'
         }
 
-        const apiUrl = `${baseUrl}/api/get/book/${props.book}`;
-        const response = await fetch(apiUrl);
+        const apiUrl = `${baseUrl}/api/get/book/${props.book}`
+        const response = await fetch(apiUrl)
         // console.log("response:", response);
 
-        const data: { [key: string]: Mcq } = await response.json();
+        const data: { [key: string]: Mcq } = await response.json()
         // console.log("data:", data);
 
         // Convert the object into an array of MCQ objects
-        const mcqsArray = Object.values(data);
+        const mcqsArray = Object.values(data)
         // console.log("mcqsArray:", mcqsArray);
 
         // Filter the strings
         const filteredMcqsArray = mcqsArray.filter((mcq) => {
-          const normalizedBook = mcq.heading1
-            .toLowerCase()
-            .replace(/\s+/g, "-");
+          const normalizedBook = mcq.heading1.toLowerCase().replace(/\s+/g, '-')
           // console.log("normalizedBook:", normalizedBook);
 
-          const normalizedSlug = props.subSlug.toLowerCase();
+          const normalizedSlug = props.subSlug.toLowerCase()
           // console.log("normalizedSlug:", normalizedSlug);
 
-          return normalizedBook === normalizedSlug;
-        });
+          return normalizedBook === normalizedSlug
+        })
 
         // Filter the strings
         const furtherFilteredMcqsArray = filteredMcqsArray.filter((mcq) => {
-          const normalizedBook = mcq.heading2
-            .toLowerCase()
-            .replace(/\s+/g, "-");
+          const normalizedBook = mcq.heading2.toLowerCase().replace(/\s+/g, '-')
           // console.log("normalizedBook:", normalizedBook);
 
-          const normalizedSlug = props.country.toLowerCase();
+          const normalizedSlug = props.country.toLowerCase()
           // console.log("normalizedSlug:", normalizedSlug);
 
-          return normalizedBook === normalizedSlug;
-        });
+          return normalizedBook === normalizedSlug
+        })
 
-        setMcqs(furtherFilteredMcqsArray);
+        setMcqs(furtherFilteredMcqsArray)
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error)
       }
-    };
+    }
 
-    fetchMcqs();
-  }, [props.country, props.book, props.subSlug]);
+    fetchMcqs()
+  }, [props.country, props.book, props.subSlug])
 
   return (
     <section>
@@ -101,5 +97,5 @@ export default function QuizCountry(props: {
         </div>
       </Container>
     </section>
-  );
+  )
 }

@@ -1,12 +1,12 @@
-"use client";
-import { useState, useEffect } from "react";
-import slugify from "slugify";
-import Link from "next/link";
-import { Mcq } from "@/src/types/quiz/page";
-import Container from "@/src/components/elements/container/page";
+'use client'
+import { useState, useEffect } from 'react'
+import slugify from 'slugify'
+import Link from 'next/link'
+import { Mcq } from '@/src/types/quiz/page'
+import Container from '@/src/components/elements/container/page'
 
 export default function QuizHeading2(props: { book: string; subSlug: string }) {
-  const [uniqueBooks, setUniqueBooks] = useState<string[]>([]);
+  const [uniqueBooks, setUniqueBooks] = useState<string[]>([])
   // console.log("uniqueBooks:", uniqueBooks);
   // console.log("check param:", params.book);
   // console.log("check param:", params.subSlug);
@@ -14,56 +14,54 @@ export default function QuizHeading2(props: { book: string; subSlug: string }) {
   useEffect(() => {
     const fetchMcqs = async () => {
       try {
-        let baseUrl;
+        let baseUrl
 
         if (process.env.NODE_ENV === 'development') {
-          baseUrl = 'http://localhost:8000';
+          baseUrl = 'http://localhost:8000'
         } else {
-          baseUrl = 'https://education-website-backend.vercel.app';
+          baseUrl = 'https://education-website-backend.vercel.app'
         }
-        
-        const apiUrl = `${baseUrl}/api/get/heading-1/${props.subSlug}`;
 
-        const response = await fetch(apiUrl );
-        const data: { [key: string]: Mcq } = await response.json();
+        const apiUrl = `${baseUrl}/api/get/heading-1/${props.subSlug}`
+
+        const response = await fetch(apiUrl)
+        const data: { [key: string]: Mcq } = await response.json()
         // console.log("response:", response);
         // console.log("data:", data);
 
         // Convert the object into an array
-        const mcqsArray = Object.values(data);
+        const mcqsArray = Object.values(data)
         // console.log("mcqsArray:", mcqsArray);
 
         // Filter the strings
         const filteredMcqsArray = mcqsArray.filter((mcq) => {
-          const normalizedBook = mcq.heading1
-            .toLowerCase()
-            .replace(/\s+/g, "-");
+          const normalizedBook = mcq.heading1.toLowerCase().replace(/\s+/g, '-')
           // console.log("normalizedBook:", normalizedBook);
 
-          const normalizedSlug = props.subSlug.toLowerCase();
+          const normalizedSlug = props.subSlug.toLowerCase()
           // console.log("normalizedSlug:", normalizedSlug);
 
-          return normalizedBook === normalizedSlug;
-        });
+          return normalizedBook === normalizedSlug
+        })
 
         // Check if mcqsArray is not empty before setting the state
         if (Array.isArray(filteredMcqsArray) && filteredMcqsArray.length > 0) {
           // Extract unique books
           const uniqueBooks: string[] = Array.from(
             new Set(filteredMcqsArray.map((mcq) => mcq.heading2.toLowerCase()))
-          );
+          )
 
-          setUniqueBooks(uniqueBooks);
+          setUniqueBooks(uniqueBooks)
         } else {
-          console.error("MCQs data is empty or not in the expected format");
+          console.error('MCQs data is empty or not in the expected format')
         }
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error)
       }
-    };
+    }
 
-    fetchMcqs();
-  }, [props.book, props.subSlug]);
+    fetchMcqs()
+  }, [props.book, props.subSlug])
 
   return (
     <section>
@@ -91,5 +89,5 @@ export default function QuizHeading2(props: { book: string; subSlug: string }) {
         </div>
       </Container>
     </section>
-  );
+  )
 }

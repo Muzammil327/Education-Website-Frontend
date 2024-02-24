@@ -1,43 +1,42 @@
-"use client";
+'use client'
 
 import { useRouter } from 'next/navigation'
-import React, { useState } from "react";
-import axios from "axios";
-import Header from "@/src/components/layout/header/page";
-import { FaBolt } from "react-icons/fa6";
-import slugify from "slugify";
-import Container from "@/src/components/elements/container/page";
-import { useParams } from "next/navigation";
+import React, { useState } from 'react'
+import axios from 'axios'
+import Header from '@/src/components/layout/header/page'
+import { FaBolt } from 'react-icons/fa6'
+import slugify from 'slugify'
+import Container from '@/src/components/elements/container/page'
+import { useParams } from 'next/navigation'
 
 const SearchBar = () => {
-  const router = useRouter(); // Using useRouter hook to access the router object
+  const router = useRouter() // Using useRouter hook to access the router object
   // const { book, subSlug, country } = router.query;
 
-  const [tags, setTags] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-
+  const [tags, setTags] = useState('')
+  const [searchResults, setSearchResults] = useState([])
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleSearch = async () => {
     try {
       // Send a GET request to your backend API with the entered tags
-      const response = await axios.get(`/api/get/tags?tags=${tags}`);
+      const response = await axios.get(`/api/get/tags?tags=${tags}`)
       // Update the searchResults state with the data from the response
       if (response.data.length === 0) {
-        setError("No results found for the provided tags.");
-        alert("fg")
+        setError('No results found for the provided tags.')
+        alert('fg')
       } else {
-        setSearchResults(response.data);
-        setError(""); // Clear error message if results are found
-        setTags("");
-        setLoading(false);
+        setSearchResults(response.data)
+        setError('') // Clear error message if results are found
+        setTags('')
+        setLoading(false)
       }
     } catch (error) {
       // Handle errors (e.g., display error message)
-      console.error("Error searching:", error);
+      console.error('Error searching:', error)
     }
-  };
+  }
 
   return (
     <div>
@@ -45,8 +44,8 @@ const SearchBar = () => {
       <div className="bg-gray-900 w-full py-12 mx-auto mt-20">
         <form
           onSubmit={(e) => {
-            e.preventDefault();
-            handleSearch();
+            e.preventDefault()
+            handleSearch()
           }}
           className="py-40 flex items-center justify-center"
         >
@@ -97,7 +96,7 @@ const SearchBar = () => {
         {/* <span className="text-[400px]">  {country}</span> */}
       </Container>
     </div>
-  );
-};
+  )
+}
 
-export default SearchBar;
+export default SearchBar

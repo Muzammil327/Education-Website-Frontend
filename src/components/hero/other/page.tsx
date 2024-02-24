@@ -1,8 +1,6 @@
-import React from "react";
+import React from 'react'
 
-export default function OtherHero(props: {
-    data:string
-}) {
+export default function OtherHero(props: { data: string }) {
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
@@ -13,7 +11,7 @@ export default function OtherHero(props: {
         >
           <span className="text-xs bg-blue-700 rounded-full text-white px-4 py-1.5 mr-3">
             New
-          </span>{" "}
+          </span>{' '}
           <span className="text-sm font-medium">
             Flowbite is out! See whats new
           </span>
@@ -31,7 +29,7 @@ export default function OtherHero(props: {
           </svg>
         </a>
         <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-        {props.data}
+          {props.data}
         </h1>
         <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
           Here at Flowbite we focus on markets where technology, innovation, and
@@ -71,8 +69,7 @@ export default function OtherHero(props: {
             Watch video
           </a>
         </div>
-     
       </div>
     </section>
-  );
+  )
 }

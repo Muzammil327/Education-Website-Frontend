@@ -1,30 +1,31 @@
-"use client";
-import { useParams } from "next/navigation";
-import { useState, useEffect } from "react";
-import { Mcq } from "@/src/types/quiz/page";
-import party from "party-js";
-import { FaCheck } from "react-icons/fa6";
-import { FaTimes } from "react-icons/fa";
-import Container from "@/src/components/elements/container/page";
-import QuizQuestionForm from "@/src/components/quiz/question/form/page";
-import Header from "@/src/components/layout/header/page";
+'use client'
+import { useParams } from 'next/navigation'
+import { useState, useEffect } from 'react'
+import { Mcq } from '@/src/types/quiz/page'
+import party from 'party-js'
+import { FaCheck } from 'react-icons/fa6'
+import { FaTimes } from 'react-icons/fa'
+import Container from '@/src/components/elements/container/page'
+import QuizQuestionForm from '@/src/components/quiz/question/form/page'
+import Header from '@/src/components/layout/header/page'
+import Head from 'next/head'
 
 export default function Page() {
   const params = useParams<{
-    slug: string;
-    subSlug: string;
-    country: string;
-    question: string;
-  }>();
+    slug: string
+    subSlug: string
+    country: string
+    question: string
+  }>()
 
   // show click and result
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(null)
 
   const handleOptionChange = (option: any) => {
-    setSelectedOption(option);
-  };
+    setSelectedOption(option)
+  }
 
-  const [mcqs, setMcqs] = useState<Mcq>();
+  const [mcqs, setMcqs] = useState<Mcq>()
   // console.log("mcqs:", mcqs);
   // console.log("check param:", params.book);
   // console.log("check param:", params.subSlug);
@@ -33,40 +34,40 @@ export default function Page() {
   useEffect(() => {
     const fetchMcqs = async () => {
       try {
-        let baseUrl;
+        let baseUrl
 
         if (process.env.NODE_ENV === 'development') {
-          baseUrl = 'http://localhost:8000';
+          baseUrl = 'http://localhost:8000'
         } else {
-          baseUrl = 'https://education-website-backend.vercel.app';
+          baseUrl = 'https://education-website-backend.vercel.app'
         }
-        
-        const apiUrl = `${baseUrl}/api/get/pakstudy/${params.question}`;
 
-        const response = await fetch(apiUrl);
+        const apiUrl = `${baseUrl}/api/get/pakstudy/${params.question}`
+
+        const response = await fetch(apiUrl)
         // console.log("response:", response);
 
         if (response.ok) {
-          const data = await response.json();
+          const data = await response.json()
           // console.log("data:", data);
 
-          setMcqs(data);
+          setMcqs(data)
         } else {
-          console.error("Failed to fetch data:", response.statusText);
+          console.error('Failed to fetch data:', response.statusText)
         }
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error)
       }
-    };
+    }
 
-    fetchMcqs();
-  }, [params.question]);
+    fetchMcqs()
+  }, [params.question])
 
-  const herotext: string | undefined = mcqs?.question;
+  const herotext: string | undefined = mcqs?.question
 
   const partyFun = (e: any) => {
-    party.confetti(e.target);
-  };
+    party.confetti(e.target)
+  }
 
   const resultText = selectedOption ? (
     selectedOption === mcqs?.correctoption ? (
@@ -86,11 +87,14 @@ export default function Page() {
         <FaTimes className="mx-auto" /> False
       </span>
     )
-  ) : null;
+  ) : null
 
   return (
-    <>
-      <Header title={herotext || ""} />
+    <div>
+      <Head>
+        <title>hjhj</title>
+      </Head>
+      <Header title={herotext || ''} />
 
       <Container>
         <div className="grid md:grid-cols-9 gap-2">
@@ -132,11 +136,11 @@ export default function Page() {
                 </ul>
               </div> */}
             </section>
-            <QuizQuestionForm url={params.question}/>
+            <QuizQuestionForm url={params.question} />
           </div>
           <div className="col-span-3"></div>
         </div>
       </Container>
-    </>
-  );
+    </div>
+  )
 }

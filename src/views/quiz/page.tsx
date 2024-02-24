@@ -1,11 +1,12 @@
-import Header from "@/src/components/layout/header/page";
-import QuizBookSection from "@/src/components/quiz/book/page";
+import Header from '@/src/components/layout/header/page'
+import SubHeader from '@/src/components/layout/header/subheader/page'
+import QuizBookSection from '@/src/components/quiz/book/page'
 
 export default function QuizView() {
   return (
     <>
-      <Header title={"Quiz Book"} />
+      <SubHeader title="Quiz Book" />
       <QuizBookSection />
     </>
-  );
+  )
 }

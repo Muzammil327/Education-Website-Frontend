@@ -1,0 +1,40 @@
+.cards {
+  @apply relative flex w-full flex-col rounded-xl bg-white bg-clip-border text-gray-700 mb-10 lg:mb-0;
+  box-shadow:
+    0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur)
+      var(--card-box-shadow-1),
+    0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur)
+      var(--card-box-shadow-2),
+    0 0 0 1px var(--card-border-color);
+  padding: 16px 16px;
+  cursor: pointer;
+  transition: box-shadow 0.25s;
+
+  &:hover {
+    box-shadow:
+      0px 3px 6px var(--card-hover-box-shadow-1),
+      0px var(--card-hover-box-shadow-2-y) var(--card-hover-box-shadow-2-blur)
+        var(--card-hover-box-shadow-2),
+      0 0 0 1px var(--card-hover-border-color);
+  }
+
+  .image {
+    @apply relative overflow-hidden text-white shadow-lg rounded-xl bg-indigo-100 bg-clip-border shadow-blue-500/40;
+  }
+
+  .text {
+    @apply py-6;
+
+    .head {
+      @apply flex items-center justify-between mb-3;
+
+      h5 {
+        @apply block font-sans text-xl antialiased font-medium leading-snug tracking-normal text-gray-900;
+      }
+    }
+
+    p {
+      @apply block font-sans text-base antialiased font-light leading-relaxed text-gray-700;
+    }
+  }
+}

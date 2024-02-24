@@ -1,49 +1,49 @@
-"use client";
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import slugify from "slugify";
-import Container from "@/src/components/elements/container/page";
-import { Mcq } from "@/src/types/quiz/page";
+'use client'
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import slugify from 'slugify'
+import Container from '@/src/components/elements/container/page'
+import { Mcq } from '@/src/types/quiz/page'
 
 export default function QuizBookSection() {
-  const [uniqueBooks, setUniqueBooks] = useState<string[]>([]);
+  const [uniqueBooks, setUniqueBooks] = useState<string[]>([])
 
   useEffect(() => {
     const fetchMcqs = async () => {
       try {
-        let baseUrl;
+        let baseUrl
 
         if (process.env.NODE_ENV === 'development') {
-          baseUrl = 'http://localhost:8000';
+          baseUrl = 'http://localhost:8000'
         } else {
-          baseUrl = 'https://education-website-backend.vercel.app';
+          baseUrl = 'https://education-website-backend.vercel.app'
         }
-        
-        const apiUrl = `${baseUrl}/api/get/pakstudy`;
-        
-        const response = await fetch(apiUrl);        
-        const data: { [key: string]: Mcq } = await response.json();
+
+        const apiUrl = `${baseUrl}/api/get/pakstudy`
+
+        const response = await fetch(apiUrl)
+        const data: { [key: string]: Mcq } = await response.json()
 
         // Convert the object into an array of MCQ objects
-        const mcqsArray = Object.values(data);
+        const mcqsArray = Object.values(data)
 
         // Check if mcqsArray is not empty before setting the state
         if (Array.isArray(mcqsArray) && mcqsArray.length > 0) {
           // Extract unique books
           const uniqueBooks: string[] = Array.from(
             new Set(mcqsArray.map((mcq) => mcq.book))
-          );
-          setUniqueBooks(uniqueBooks);
+          )
+          setUniqueBooks(uniqueBooks)
         } else {
-          console.error("MCQs data is empty or not in the expected format");
+          console.error('MCQs data is empty or not in the expected format')
         }
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error)
       }
-    };
+    }
 
-    fetchMcqs();
-  }, []);
+    fetchMcqs()
+  }, [])
 
   return (
     <section>
@@ -96,5 +96,5 @@ export default function QuizBookSection() {
         </div>
       </Container>
     </section>
-  );
+  )
 }

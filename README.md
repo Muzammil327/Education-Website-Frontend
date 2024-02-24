@@ -1,7 +1,1 @@
-
--- Biology
--- Physics
--- Chemistry
--- Math
--- English
--- General Knowledge
+/class-9/book/punjab/biology/english/chapter-1
