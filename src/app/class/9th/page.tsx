@@ -3,17 +3,17 @@ import SubHeader from '@/src/components/layout/header/subheader/page'
 import Container from '@/src/components/elements/container/page'
 import Card from '@/src/components/card/page'
 import { CardDataType } from '@/src/types/card/page'
-import { Class9CardData } from '@/src/app/class/class-9/data'
+import { Class9CardData } from '@/src/app/class/9th/data'
 
 const data = {
   title: 'Class 9 | MindBender',
   description:
     'Explore essential resources for Class 9 students in Pakistan: Date Sheets, Past Papers, Results, Study Tools, and more available here!',
-  canonical: '/class-9',
+  canonical: '/class/9th',
   index: true,
   follow: true,
   image: '/opengraph-image.jpg',
-  url: 'https://www.mindbenderquiz.com/class-9',
+  url: 'https://www.mindbenderquiz.com/class/9th',
   keywords: [
     'mindbender class 9',
     'mindbender class 9th',

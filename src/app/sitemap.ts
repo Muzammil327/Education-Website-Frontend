@@ -15,7 +15,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: 'https://www.mindbenderquiz.com/books',
+      url: 'https://www.mindbenderquiz.com/class',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.5,
+    },
+    {
+      url: 'https://www.mindbenderquiz.com/class/9th',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.5,
+    },
+    {
+      url: 'https://www.mindbenderquiz.com/class/9th/books',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.5,
+    },
+    {
+      url: 'https://www.mindbenderquiz.com/class/9th/books/punjab',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.5,
+    },
+    {
+      url: 'https://www.mindbenderquiz.com/class/9th/books/sindh',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.5,
