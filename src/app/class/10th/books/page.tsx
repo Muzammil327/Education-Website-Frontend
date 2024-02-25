@@ -3,7 +3,7 @@ import SubHeader from '@/src/components/layout/header/subheader/page'
 import Container from '@/src/components/elements/container/page'
 import Card from '@/src/components/card/page'
 import { CardDataType } from '@/src/types/card/page'
-import { Class9BookCardData } from '@/src/app/class/9th/books/data'
+import { Class9BookCardData } from '@/src/app/class/10th/books/data'
 
 const data = {
   title: 'Class 9 Books | MindBender',
