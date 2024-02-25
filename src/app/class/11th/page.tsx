@@ -3,7 +3,7 @@ import SubHeader from '@/src/components/layout/header/subheader/page'
 import Container from '@/src/components/elements/container/page'
 import Card from '@/src/components/card/page'
 import { CardDataType } from '@/src/types/card/page'
-import { Class9BookCardData } from '@/src/app/class/class-11/data'
+import { Class11CardData } from '@/src/app/class/11th/data'
 
 const data = {
   title: 'Class 11 | MindBender',
@@ -32,7 +32,7 @@ export default function Page() {
       <SubHeader title="Class 11" />
       <Container>
         <div className="grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 py-12 mb-12 md:gap-6">
-          {Class9BookCardData.map((data: CardDataType) => (
+          {Class11CardData.map((data: CardDataType) => (
             <Card
               key={data.id}
               title={data.title}
