@@ -78,10 +78,9 @@ export default function RootLayout({
           name="ahrefs-site-verification"
           content="234939215ab82c4e0069a4dfb6f90dcda6f5777af678e3dffac7654efdddbf42"
         ></meta>
-
         <meta
           name="google-site-verification"
-          content="z6UP6GIGKuFhxUT_ASuLiSjCpTj2ILb0wwaq3tPid94"
+          content="TLC1ScjuJKnpeLltQJOI6Xu0QwitVD-gOYWCfoQarwo"
         />
       </head>
       <body className={inter.className}>

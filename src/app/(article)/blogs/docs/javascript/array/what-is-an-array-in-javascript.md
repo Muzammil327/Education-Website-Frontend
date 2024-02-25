@@ -1,9 +1,9 @@
 ---
-id: '9'
+id: '3'
 title: 'What is an array in javascript.'
 para: 'JavaScript arrays are used to manage data structures effectively. Their implementation and usage in JavaScript programming is significant.'
-date: '15-02-2024'
-cat: 'Javascript'
+date: '27-02-2024'
+cat: 'javascript'
 catslug: 'javascript'
 tag: 'array'
 tagslug: 'array'

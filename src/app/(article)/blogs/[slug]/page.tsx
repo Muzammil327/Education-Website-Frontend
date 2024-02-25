@@ -1,8 +1,7 @@
 import fs from 'fs'
-import Markdown from 'markdown-to-jsx'
-import matter from 'gray-matter'
-import getPostMetadata from '@/src/components/article/post/PostMetadata/page'
 import path from 'path'
+import matter from 'gray-matter'
+import Markdown from 'markdown-to-jsx'
 import Container from '@/src/components/elements/container/page'
 import RightPost from '@/src/components/article/post/rightPost/page'
 import SubHeader from '@/src/components/layout/header/subheader/page'
@@ -31,18 +30,10 @@ const directories = [
   'src/app/(article)/blogs/docs/fashion/',
   'src/app/(article)/blogs/docs/javascript/array/',
 ]
-
-export const generateStaticParams = async () => {
-  const posts = getPostMetadata()
-  return posts.map((post) => ({
-    slug: post.slug,
-  }))
-}
-
 const PostPage = (props: any) => {
   const slug = props.params.slug
-  // const post = getPostContent(slug);
   const post = getPostContent(slug, directories)
+
   return (
     <>
       <SubHeader title={post?.data.title} />
@@ -84,3 +75,43 @@ const PostPage = (props: any) => {
 }
 
 export default PostPage
+
+export async function generateMetadata(props: any) {
+  const slug = props.params.slug
+  const post = getPostContent(slug, directories)
+  return {
+    title: post?.data.title,
+    description: post?.data.para,
+    // keywords: data.keywords,
+    alternates: {
+      canonical: `blogs/${slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
+    openGraph: {
+      title: post?.data.title,
+      description: post?.data.para,
+      url: `blogs/${slug}`,
+      images: [
+        {
+          // url: data.image,
+          alt: post?.data.para,
+        },
+      ],
+    },
+    twitter: {
+      title: post?.data.title,
+      description: post?.data.para,
+      images: {
+        // url: data.image,
+        alt: post?.data.para,
+      },
+    },
+  }
+}

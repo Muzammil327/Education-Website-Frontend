@@ -12,6 +12,7 @@ const data = {
   url: 'https://www.mindbenderquiz.com/',
   keywords: ['mindbender', 'Mindbender'],
 }
+
 export default function Home() {
   return (
     <main>

@@ -1,8 +1,8 @@
 ---
-id: '2'
-title: 'How to declare an array in JavaScript?'
+id: '1'
+title: 'How to create an array in JavaScript?'
 para: ' In this tutorial, I discuss the best way to declare variable in javascript. JavaScript arrays are used to manage data structures effectively.'
-date: '26-02-2024'
+date: '25-02-2024'
 cat: 'javascript'
 catslug: 'javascript'
 tag: 'array'

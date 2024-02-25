@@ -37,7 +37,7 @@
 
     a {
       span {
-        @apply absolute opacity-0 top-0 right-0 bg-red-100 cursor-pointer z-50 w-full h-full flex justify-center items-center;
+        @apply absolute opacity-0 top-0 right-0 bg-red-100 cursor-pointer w-full h-full flex justify-center items-center;
         transition: 0.5s ease-in-out;
 
         svg {
