@@ -1,6 +1,6 @@
 import { CardDataType } from '@/src/types/card/page'
 
-export const Class9BookCardData: CardDataType[] = [
+export const Class10NotesCardData: CardDataType[] = [
   {
     id: 1,
     title: 'Punjab Board Books',
